@@ -9,3 +9,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
     return isResponseAsync;
 });
+
+chrome.action.onClicked.addListener((tab) => {
+    let url = chrome.runtime.getURL('popup.html');
+    chrome.tabs.create({ url }, (tab) => console.log(`Created tab ${tab.id}`));
+  });
+
